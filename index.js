@@ -18,6 +18,10 @@ Do the following:
    HINT: no function required
 */
 
+const votingAge = 19;
+if (votingAge >= 18) {
+    console.log("True");
+}
 
 
 /*
@@ -31,7 +35,11 @@ Do the following:
    HINT: no function required
 */
 
+var a = 1;
+var b = 2;
 
+a = b;
+console.log(a);
 
 
 
@@ -46,7 +54,9 @@ Do the following:
    HINT: look up the Number method
 */
 
-
+const year = "1999";
+const answer = parseInt(year);
+console.log(answer);
 
 
 /*
@@ -58,9 +68,10 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
+function multiply(a, b) {
     /*add your code here*/
-  }
+    return a * b;
+}
 
 
 
@@ -74,7 +85,8 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
+function dogYears(age) {
+    return age * 7;
     /*add your code here*/
 }
 
@@ -105,11 +117,25 @@ Use the hungryDog function and feeding requirements below to do the following:
      7 - 12 months 4% of their body weight
     
   NOTE: If done correctly, a weight of 15 lbs and age of 1 year would return 0.44999999999999996
-*/  
+*/
 
-function hungryDog(/*add your code here*/){
-    /*add your code here*/
-  }
+function hungryDog(age, weight) {
+    if (age >= 1 && weight <= 5) {
+        return "1Your dog should be eating " + weight * .05 + " lbs of food per day";
+    } else if (age >= 1 && weight >= 6 && weight <= 10) {
+        return "2Your dog should be eating " + weight * .04 + " lbs of food per day"
+    } else if (age >= 1 && weight >= 11 && weight <= 15) {
+        return "3Your dog should be eating " + weight * .03 + " lbs of food per day"
+    } else if (age >= 1 && weight > 15) {
+        return "4Your dog should be eating " + weight * .02 + " lbs of food per days";
+    } else if (age >= 0.16666666666 && age <= .25) {
+        return "5Your puppy should be eating " + weight * .10 + " lbs of food per day";
+    } else if (age >= .25 && age <= 0.583) {
+        return "6Your puppy should be eating " + weight * .05 + " lbs of food per day";
+    } else if (age >= 0.583 && age <= .99) {
+        return "Your puppy should be eating " + weight * .04 + " lbs of food per day";
+    }
+}
 
 
 
@@ -127,11 +153,43 @@ Use the game function below to do the following:
   HINT: While you can complete this with only conditionals based on strings, it may help to equate choice to a number when using Math.random()
 */
 
-function game(/*add your code here*/){
-    /*add your code here*/
+function game(string) {
+    var computerChoice = Math.random();
+    if (computerChoice < 0.34) {
+        computerChoice = "rock";
+    } else if (computerChoice <= 0.67) {
+        computerChoice = "paper";
+    } else {
+        computerChoice = "scissors";
+    }
+    var compare = function(choice1, choice2) {
+            if (choice1 === choice2) {
+                return "The result is a tie!";
+            } else if (choice1 === "rock") {
+                if (choice2 === "scissors") {
+                    return "rock wins"
+                } else if (choice2 === "paper") {
+                    return "paper wins";
+                }
+            } else if (choice1 === "paper") {
+                if (choice2 === "scissors") {
+                    return "scissors win"
+                } else if (choice2 === "rock") {
+                    return "paper wins";
+                }
+            } else if (choice1 === "scissors") {
+                if (choice2 === "paper") {
+                    return "scissors win"
+                } else if (choice2 === "rock") {
+                    return "rock wins";
+                }
+            }
+
+        }
+        /*add your code here*/
 }
-  
-  
+
+
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -144,9 +202,12 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
+function miles(kilometers) {
+    const mileConversion = 0.621371;
+    const answer = kilometers * mileConversion;
+    return answer;
     /*add your code here*/
-  }
+}
 
 
 
@@ -158,10 +219,13 @@ Using the feet function below do the following:
   3. Return number of centimeters
 */
 
-function feet(/*add your code here*/){
+function feet(feet) {
+    const centimetersConversion = 30.48;
+    const answer = feet * centimetersConversion;
+    return answer;
     /*add your code here*/
-  }
- 
+}
+
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -174,9 +238,12 @@ Using the annoyingSong function below do the following:
       "(number) bottles of soda on the wall, (number) bottles of soda, take one down pass it around (number left over) bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
-  }
+function annoyingSong(number) {
+    for (let i = 0; i < number; i++) {
+        return number + " bottles of soda on the wall, " + number + " bottles of soda, take one down pass it around " + number[i] + " bottles of soda on the wall";
+    }
+    /*add your code here*/
+}
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -193,14 +260,23 @@ Using the grade function below do the following:
    60-69 =  D 
    below 60 = F
 */
-  
-function grade(/*add your code here*/){
+
+function grade(score) {
+    if (score > 90 && score < 100) {
+        return "A";
+    } else if (score > 80 && score < 89) {
+        return "B";
+    } else if (score > 70 && score < 79) {
+        return "C";
+    } else if (score > 60 && score < 69) {
+        return "D";
+    } else if (score < 60) {
+        return "F";
+    }
     /*add your code here*/
-  }
-  
-  
-  
-  
+}
+
+
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
 
@@ -215,19 +291,19 @@ Using the vowelCounter function below do the following:
 */
 
 
-function vowelCounter(/*add your code here*/) {
+function vowelCounter( /*add your code here*/ ) {
     /*add your code here*/
 }
 
 
 
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-function foo(){
+function foo() {
     console.log('its working');
     return 'bar';
 }
 /*🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Don't touch the code after this line! 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑*/
-export default{
+export default {
     foo,
     multiply,
     dogYears,
